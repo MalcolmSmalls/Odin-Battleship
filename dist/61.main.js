@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkodin_battleship=self.webpackChunkodin_battleship||[]).push([[61],{61:(e,t,s)=>{s.r(t),s.d(t,{Ships:()=>a});const a=e=>{let t=0;t="carrier"===e?5:"battleship"===e?4:"destroyer"===e||"submarine"===e?3:"patrol boat"===e?2:null}}}]);
