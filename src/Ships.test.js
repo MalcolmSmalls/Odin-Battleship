@@ -1,6 +1,6 @@
 import { Ships } from "./Ships.js"
 
-const carrier = Ships('carrier', 'horizontal', 'A2')
+const carrier = Ships('carrier', 'vertical', 'A2')
 
 test('OY mate! Let\'s build some ships', () => {
     expect(carrier.sunk()).toEqual(false)
@@ -15,8 +15,6 @@ test('OY mate! Let\'s build some ships', () => {
 })
 
 test('Does thou coordinates register?', () => {
-    // expect(carrier.start.substring(1)).toEqual('1')
-    carrier.shipCoordinates()
-    expect(carrier.shipCoordinates()).toEqual('yes')
-    expect(carrier.getAlignment()).toEqual('horizontal')
+    // carrier.shipCoordinates()
+    expect(carrier.shipCoordinates()).toContain('B2')
 })

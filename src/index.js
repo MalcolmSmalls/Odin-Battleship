@@ -5,9 +5,7 @@ import { Ships } from "./Ships.js"
 
 
 
-const carrier = Ships('carrier', 'horizontal', 'A2')
-// console.log(coordinates)
+const carrier = Ships('carrier', 'vertical', 'F6')
 
-carrier.shipCoordinates()
+console.log(carrier.shipCoordinates())
 
-console.log(coordinates)

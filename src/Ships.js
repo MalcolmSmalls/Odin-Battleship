@@ -43,8 +43,8 @@ const Ships = (shipType, alignment, baseStart) => {
 
         if(getAlignment() === "horizontal"){
             let startingNum = Number(start.substring(1));
-            if(startingNum + shipSize <= 10){
-                for(let i=startingNum; i<=shipSize;i++ ){
+            if(startingNum-1 + shipSize <= 10){
+                for(let i=startingNum; i < startingNum + shipSize; i++ ){
                     coordinatesArr.push(`${start.substring(0,1)}${i}`)
     
                 }
@@ -60,14 +60,23 @@ const Ships = (shipType, alignment, baseStart) => {
         //     console.log(property.includes('A1'))
         
         // }
-
-        console.log(coordinatesArr)
-
-
  
         }else if(getAlignment() === "vertical"){
+            let abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+            let num = Number(start.substring(1));
+            let abcStart = start.substring(0,1);
+            let abcIndex = abc.indexOf(abcStart)
+            if(abcIndex + shipSize <= 10){
+                for(let i=abcIndex; i<abcIndex+shipSize;i++ ){
+                    coordinatesArr.push(`${abc[i]}${num}`)
+                }
+            }else{
+                return
+            }
 
         }
+
+        return coordinatesArr
         // return gameBoard().coordinates.A2
     }
     // shipCoordinates()
