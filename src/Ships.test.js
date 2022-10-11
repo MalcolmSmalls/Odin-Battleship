@@ -1,4 +1,3 @@
-// const Ships = require ('./Ships')
 import { Ships } from "./Ships.js"
 
 const carrier = Ships('carrier', 'horizontal', 'A2')

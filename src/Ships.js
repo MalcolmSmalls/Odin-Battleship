@@ -51,12 +51,9 @@ const Ships = (shipType, alignment, baseStart) => {
         }
         // return gameBoard().coordinates.A2
     }
-    shipCoordinates()
+    // shipCoordinates()
     return {shipSize, getType, shipSizeGetter, health, sunk, hit, shipCoordinates, getAlignment, start}
 }
-
-
-// module.exports = Ships
 
 
 export { Ships }
