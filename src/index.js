@@ -6,4 +6,8 @@ import { Ships } from "./Ships.js"
 
 
 const carrier = Ships('carrier', 'horizontal', 'A2')
+// console.log(coordinates)
+
+carrier.shipCoordinates()
+
 console.log(coordinates)

@@ -1,4 +1,4 @@
-import {gameBoard} from './gameBoard.js'
+import {coordinates, gameBoard} from './gameBoard.js'
 
 const Ships = (shipType, alignment, baseStart) => {
     let shipSize = 0
@@ -39,13 +39,32 @@ const Ships = (shipType, alignment, baseStart) => {
         return health
     }
     const shipCoordinates = () => {
-        if(getAlignment() === "horizontal"){
-            // let startingNum = Number(start.substring(1));
-            // for(let i=startingNum; i<=shipSize;i++ ){
-                gameBoard().coordinates.A2 = 2
-                console.log(gameBoard().coordinates.A2)
+        let coordinatesArr = []
 
+        if(getAlignment() === "horizontal"){
+            let startingNum = Number(start.substring(1));
+            if(startingNum + shipSize <= 10){
+                for(let i=startingNum; i<=shipSize;i++ ){
+                    coordinatesArr.push(`${start.substring(0,1)}${i}`)
+    
+                }
+            }else{
+                return
+            }
+
+
+        // for(const property in coordinates){
+            // if(property === 'A1'){
+            //     coordinates[property] = 1
             // }
+        //     console.log(property.includes('A1'))
+        
+        // }
+
+        console.log(coordinatesArr)
+
+
+ 
         }else if(getAlignment() === "vertical"){
 
         }
