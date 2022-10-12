@@ -6,6 +6,8 @@ const destroyer = Ships('destroyer', 'horizontal', 'J1')
 const submarine = Ships('submarine', "vertical", 'B10')
 const patrolBoat = Ships('patrol boat', 'horizontal', 'G1')
 
+const player1 = [carrier, battleShip, destroyer, submarine, patrolBoat ]
+
 const Gameboard = () => {
     const coordinates = {A1: 0, A2: 0, A3: 0, A4: 0, A5: 0, A6: 0, A7: 0, A8: 0, A9: 0, A10: 0,
         B1: 0, B2: 0, B3: 0, B4: 0, B5: 0, B6: 0, B7: 0, B8: 0, B9: 0, B10: 0,
@@ -24,21 +26,24 @@ const Gameboard = () => {
             if(property === coordinate){
                 if(coordinates[property] === 0){
                     coordinates[property] = 'X'
+                    return 'miss'
                 }else if(typeof(coordinates[property]) === 'string'){
-                    return
+                    console.log(coordinates[property])
+                    return 'carrier'
+                }else{
+                    return 'whoops'
                 }
             }
         }
 
        }
 
-       console.log(carrier.shipCoordinates())
 
        
        carrier.shipCoordinates().forEach(item => {
         for(const property in coordinates){
             if(property === item){
-                coordinates[property] = 1
+                coordinates[property] = 'carrier'
             }
             // console.log(property.includes('A1'))
         
@@ -47,10 +52,8 @@ const Gameboard = () => {
 
        })
 
-       console.log(coordinates)
 
-
-    return {coordinates}
+    return {coordinates, receiveAttack}
 
 }
 

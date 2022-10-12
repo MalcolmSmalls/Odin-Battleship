@@ -1,8 +1,6 @@
 import { Gameboard } from "./gameBoard.js"
 
 
-test('Let\'s get thy coordinates!', () => {
-    expect(Gameboard().coordinates.A1).toEqual(0)
-
+test('Will it get hit?', () => {
+    expect(Gameboard().receiveAttack('G6')).toEqual('carrier')
 })
-
