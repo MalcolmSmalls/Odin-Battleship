@@ -27,9 +27,9 @@ const Gameboard = () => {
                 if(coordinates[property] === 0){
                     coordinates[property] = 'X'
                     return 'miss'
-                }else if(typeof(coordinates[property]) === 'string'){
-                    console.log(coordinates[property])
-                    return 'carrier'
+                }else if(typeof(coordinates[property]) === 'object'){
+                    console.log(coordinates[property].hit())
+                    return `${coordinates[property]}`
                 }else{
                     return 'whoops'
                 }
@@ -38,19 +38,32 @@ const Gameboard = () => {
 
        }
 
+       player1.forEach(ship => {
+        ship.shipCoordinates().forEach(item => {
+            for(const property in coordinates){
+                if(property === item){
+                    coordinates[property] = ship
+                }
+                // console.log(property.includes('A1'))
+            
+            }
+    
+    
+           })         
+        })
 
        
-       carrier.shipCoordinates().forEach(item => {
-        for(const property in coordinates){
-            if(property === item){
-                coordinates[property] = 'carrier'
-            }
+    //    carrier.shipCoordinates().forEach(item => {
+    //     for(const property in coordinates){
+    //         if(property === item){
+    //             coordinates[property] = 'carrier'
+    //         }
             // console.log(property.includes('A1'))
         
-        }
+    //     }
 
 
-       })
+    //    })
 
 
     return {coordinates, receiveAttack}
