@@ -1,6 +1,10 @@
 import { Ships } from "./Ships.js"
 
 const carrier = Ships('carrier', 'vertical', 'F6')
+const battleShip = Ships('battleship', 'horizontal', 'A1')
+const destroyer = Ships('destroyer', 'horizontal', 'J1')
+const submarine = Ships('submarine', "vertical", 'B10')
+const patrolBoat = Ships('patrol boat', 'horizontal', 'G1')
 
 const Gameboard = () => {
     const coordinates = {A1: 0, A2: 0, A3: 0, A4: 0, A5: 0, A6: 0, A7: 0, A8: 0, A9: 0, A10: 0,
@@ -13,6 +17,19 @@ const Gameboard = () => {
         H1: 0, H2: 0, H3: 0, H4: 0, H5: 0, H6: 0, H7: 0, H8: 0, H9: 0, H10: 0,
         I1: 0, I2: 0, I3: 0, I4: 0, I5: 0, I6: 0, I7: 0, I8: 0, I9: 0, I10: 0,
         J1: 0, J2: 0, J3: 0, J4: 0, J5: 0, J6: 0, J7: 0, J8: 0, J9: 0, J10: 0, 
+       }
+
+       const receiveAttack = (coordinate) => {
+        for(const property in coordinates){
+            if(property === coordinate){
+                if(coordinates[property] === 0){
+                    coordinates[property] = 'X'
+                }else if(typeof(coordinates[property]) === 'string'){
+                    return
+                }
+            }
+        }
+
        }
 
        console.log(carrier.shipCoordinates())

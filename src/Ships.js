@@ -1,10 +1,14 @@
 import {Gameboard} from './gameBoard.js'
 
-const Ships = (shipType, alignment, baseStart) => {
+const Ships = (shipType, alignment, baseStart, player) => {
     let shipSize = 0
     const getType = () => shipType;
     const getAlignment = () => alignment
     const start = baseStart
+
+    // if(player === 1){
+
+    // }
 
     const shipSizeGetter = () => {
         if(shipType === 'carrier'){
