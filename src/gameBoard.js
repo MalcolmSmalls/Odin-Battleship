@@ -28,10 +28,19 @@ const Gameboard = () => {
                     coordinates[property] = 'X'
                     return 'miss'
                 }else if(typeof(coordinates[property]) === 'object'){
-                    console.log(coordinates[property].hit())
-                    return `${coordinates[property]}`
+                    coordinates[property].hit()
+                    if(coordinates[property].sunk() === true){
+                        player1.splice(player1.indexOf(coordinates[property]), 1)
+                        console.log(`${coordinates[property].getType()} has been sunk!`)
+                        if(player1.length === 0){
+                            console.log('you lose!')
+                        }
+                    }else{
+                        coordinates[property] = 'HIT'
+                    }
+                    // return coordinates[property]
                 }else{
-                    return 'whoops'
+                    return
                 }
             }
         }
