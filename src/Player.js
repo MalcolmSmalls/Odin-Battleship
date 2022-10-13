@@ -1,16 +1,51 @@
 import { Ships } from "./Ships.js"
+import {Gameboard} from "./gameBoard.js"
 
 
-const Player = () => {
+
+const Player = (player) => {
     let shipList = []
+    let playerGameboard
     const createCarrier = (alignment, location) => {
         const carrier = Ships('carrier', alignment, location)
         shipList.push(carrier)
-        console.log(shipList)
+    }
+    const createBattleship = (alignment, location) => {
+        const battleship = Ships('battleship', alignment, location)
+        shipList.push(battleship)
+    }
+    const createDestroyer = (alignment, location) => {
+        const destroyer = Ships('destroyer', alignment, location)
+        shipList.push(destroyer)
+    }
+    const createSubmarine = (alignment, location) => {
+        const submarine = Ships('submarine', alignment, location)
+        shipList.push(submarine)
+    }
+    const createPatrolBoat = (alignment, location) => {
+        const patrolBoat = Ships('patrol boat', alignment, location)
+        shipList.push(patrolBoat)
     }
 
-    return {shipList, createCarrier}
+
+    const createGameboard = () => {
+        // playerGameboard = Gameboard(player)
+        // Gameboard(player)
+        // console.log(player)
+    }
+    // Gameboard(player)
+
+
+    return {shipList, createCarrier, createBattleship, createDestroyer, createSubmarine, createPatrolBoat, createGameboard, playerGameboard, player}
 }
+
+
+
+
+;
+// player1obj.createCarrier('vertical', 'F6')
+
+// player1.createCarrier('horizontal', 'A1')
 
 
 // const carrier = Ships('carrier', 'vertical', 'F6')

@@ -3,8 +3,14 @@ import {Gameboard} from "./gameBoard.js"
 import { Ships } from "./Ships.js"
 
 import { Player } from "./Player.js"
+// import "./Player.js"
 
-Player().createCarrier('horizontal', 'A1')
+const player1obj = Player('player1')
+console.log(player1obj.createGameboard())
+const player2obj = Player('player2');
+
+// player1.createGameboard()
+// console.log(player1.playerGameboard)
 
 // console.log(Gameboard().receiveAttack('B10'))
 // console.log(Gameboard().receiveAttack('C10'))
@@ -29,4 +35,4 @@ Player().createCarrier('horizontal', 'A1')
 
 
 
-Gameboard()
+

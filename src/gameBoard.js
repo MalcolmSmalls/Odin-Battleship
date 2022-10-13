@@ -1,14 +1,8 @@
 import { Ships } from "./Ships.js"
+import "./Player.js"
 
-const carrier = Ships('carrier', 'vertical', 'F6')
-const battleShip = Ships('battleship', 'horizontal', 'A1')
-const destroyer = Ships('destroyer', 'horizontal', 'J1')
-const submarine = Ships('submarine', "vertical", 'B10')
-const patrolBoat = Ships('patrol boat', 'horizontal', 'G1')
 
-const player1 = [carrier, battleShip, destroyer, submarine, patrolBoat ]
-
-const Gameboard = () => {
+const Gameboard = (player) => {
     const coordinates = {A1: 0, A2: 0, A3: 0, A4: 0, A5: 0, A6: 0, A7: 0, A8: 0, A9: 0, A10: 0,
         B1: 0, B2: 0, B3: 0, B4: 0, B5: 0, B6: 0, B7: 0, B8: 0, B9: 0, B10: 0,
         C1: 0, C2: 0, C3: 0, C4: 0, C5: 0, C6: 0, C7: 0, C8: 0, C9: 0, C10: 0,                        
@@ -21,19 +15,23 @@ const Gameboard = () => {
         J1: 0, J2: 0, J3: 0, J4: 0, J5: 0, J6: 0, J7: 0, J8: 0, J9: 0, J10: 0, 
        }
 
+       const letsTry = () => {
+        console.log("let's goooo")
+       }
+
        const receiveAttack = (coordinate) => {
         for(const property in coordinates){
             if(property === coordinate){
                 if(coordinates[property] === 0){
-                    coordinates[property] = 'X'
+                    coordinates[property] = 'X' 
                     return 'miss'
                 }else if(typeof(coordinates[property]) === 'object'){
                     coordinates[property].hit()
                     if(coordinates[property].sunk() === true){
-                        player1.splice(player1.indexOf(coordinates[property]), 1)
+                        player.splice(player.indexOf(coordinates[property]), 1)
                         console.log(`${coordinates[property].getType()} has been sunk!`)
                         coordinates[property] = 'HIT'
-                        if(player1.length === 0){
+                        if(player.length === 0){
                             console.log('you lose!')
                         }
                     }else if(coordinates[property] === 'X' || coordinates[property] === "HIT"){
@@ -48,7 +46,7 @@ const Gameboard = () => {
 
        }
 
-       player1.forEach(ship => {
+       player.forEach(ship => {
         ship.shipCoordinates().forEach(item => {
             for(const property in coordinates){
                 if(property === item){
@@ -78,7 +76,7 @@ const Gameboard = () => {
     //    })
 
 
-    return {coordinates, receiveAttack}
+    return {coordinates, receiveAttack, letsTry}
 
 }
 

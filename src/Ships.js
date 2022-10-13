@@ -1,6 +1,8 @@
 import {Gameboard} from './gameBoard.js'
+import "./Player.js"
 
-const Ships = (shipType, alignment, baseStart, player) => {
+
+const Ships = (shipType, alignment, baseStart) => {
     let shipSize = 0
     const getType = () => shipType;
     const getAlignment = () => alignment
