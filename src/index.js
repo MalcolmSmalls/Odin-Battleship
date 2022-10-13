@@ -2,6 +2,9 @@ import {Gameboard} from "./gameBoard.js"
 
 import { Ships } from "./Ships.js"
 
+import { Player } from "./Player.js"
+
+Player().createCarrier('horizontal', 'A1')
 
 // console.log(Gameboard().receiveAttack('B10'))
 // console.log(Gameboard().receiveAttack('C10'))
