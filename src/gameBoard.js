@@ -32,11 +32,12 @@ const Gameboard = () => {
                     if(coordinates[property].sunk() === true){
                         player1.splice(player1.indexOf(coordinates[property]), 1)
                         console.log(`${coordinates[property].getType()} has been sunk!`)
+                        coordinates[property] = 'HIT'
                         if(player1.length === 0){
                             console.log('you lose!')
                         }
-                    }else{
-                        coordinates[property] = 'HIT'
+                    }else if(coordinates[property] === 'X' || coordinates[property] === "HIT"){
+                        return "already tried here!"
                     }
                     // return coordinates[property]
                 }else{
@@ -60,6 +61,8 @@ const Gameboard = () => {
     
            })         
         })
+
+        // console.log(coordinates)
 
        
     //    carrier.shipCoordinates().forEach(item => {
