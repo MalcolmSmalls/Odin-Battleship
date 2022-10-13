@@ -3,12 +3,23 @@ import {Gameboard} from "./gameBoard.js"
 import { Ships } from "./Ships.js"
 
 import { Player } from "./Player.js"
+
+import {game} from "./gameBoard.js"
 // import "./Player.js"
 
-const player1obj = Player('player1')
-console.log(player1obj.createGameboard())
+const player1obj = Player()
+game.push(player1obj)
+player1obj.createCarrier('horizontal', 'A1')
+// player1obj.shipCoordinates()
+// console.log(player1obj.shipList)
+player1obj.createGameboard()
+// console.log(player1obj.playerGameboard)
+// console.log(player1obj.createGameboard())
 const player2obj = Player('player2');
+game.push(player2obj)
+player2obj.createGameboard()
 
+console.log(game)
 // player1.createGameboard()
 // console.log(player1.playerGameboard)
 
@@ -34,5 +45,5 @@ const player2obj = Player('player2');
 // console.log(Gameboard().coordinates)
 
 
-
+export {player1obj}
 

@@ -75,6 +75,7 @@ const Ships = (shipType, alignment, baseStart) => {
         }
          return coordinatesArr
     }
+
     return {shipSize, getType, shipSizeGetter, health, sunk, hit, shipCoordinates, getAlignment, start}
 }
 

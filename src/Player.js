@@ -1,9 +1,11 @@
 import { Ships } from "./Ships.js"
 import {Gameboard} from "./gameBoard.js"
+import {game} from "./gameBoard.js"
+import { player1obj } from "./index.js"
 
 
 
-const Player = (player) => {
+const Player = () => {
     let shipList = []
     let playerGameboard
     const createCarrier = (alignment, location) => {
@@ -29,14 +31,19 @@ const Player = (player) => {
 
 
     const createGameboard = () => {
-        // playerGameboard = Gameboard(player)
+        playerGameboard = Gameboard()
+
         // Gameboard(player)
         // console.log(player)
     }
     // Gameboard(player)
 
 
-    return {shipList, createCarrier, createBattleship, createDestroyer, createSubmarine, createPatrolBoat, createGameboard, playerGameboard, player}
+
+
+
+
+    return {shipList, createCarrier, createBattleship, createDestroyer, createSubmarine, createPatrolBoat, createGameboard, playerGameboard}
 }
 
 

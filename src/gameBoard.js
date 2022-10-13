@@ -1,6 +1,8 @@
 import { Ships } from "./Ships.js"
-import "./Player.js"
+import { Player } from "./Player.js"
+import { player1obj } from "./index.js"
 
+const game = []
 
 const Gameboard = (player) => {
     const coordinates = {A1: 0, A2: 0, A3: 0, A4: 0, A5: 0, A6: 0, A7: 0, A8: 0, A9: 0, A10: 0,
@@ -28,10 +30,10 @@ const Gameboard = (player) => {
                 }else if(typeof(coordinates[property]) === 'object'){
                     coordinates[property].hit()
                     if(coordinates[property].sunk() === true){
-                        player.splice(player.indexOf(coordinates[property]), 1)
+                        player1obj.splice(player1obj.indexOf(coordinates[property]), 1)
                         console.log(`${coordinates[property].getType()} has been sunk!`)
                         coordinates[property] = 'HIT'
-                        if(player.length === 0){
+                        if(player1obj.length === 0){
                             console.log('you lose!')
                         }
                     }else if(coordinates[property] === 'X' || coordinates[property] === "HIT"){
@@ -46,7 +48,7 @@ const Gameboard = (player) => {
 
        }
 
-       player.forEach(ship => {
+       player1obj.shipList.forEach(ship => {
         ship.shipCoordinates().forEach(item => {
             for(const property in coordinates){
                 if(property === item){
@@ -83,4 +85,4 @@ const Gameboard = (player) => {
 
 
 
-export { Gameboard }
+export { Gameboard, game }
