@@ -12,14 +12,18 @@ game.push(player1obj)
 player1obj.createCarrier('horizontal', 'A1')
 // player1obj.shipCoordinates()
 // console.log(player1obj.shipList)
-player1obj.createGameboard()
-// console.log(player1obj.playerGameboard)
+// player1obj.createGameboard()
+
+// console.log(game[0].shipList[0].shipCoordinates())
+console.log(game[0].createGameboard().coordinates)
 // console.log(player1obj.createGameboard())
 const player2obj = Player('player2');
 game.push(player2obj)
 player2obj.createGameboard()
 
 console.log(game)
+
+// console.log(player1obj.playerGameboard)
 // player1.createGameboard()
 // console.log(player1.playerGameboard)
 

@@ -7,7 +7,6 @@ import { player1obj } from "./index.js"
 
 const Player = () => {
     let shipList = []
-    let playerGameboard
     const createCarrier = (alignment, location) => {
         const carrier = Ships('carrier', alignment, location)
         shipList.push(carrier)
@@ -31,7 +30,8 @@ const Player = () => {
 
 
     const createGameboard = () => {
-        playerGameboard = Gameboard()
+        let playerGameboard = Gameboard()
+        return playerGameboard
 
         // Gameboard(player)
         // console.log(player)
@@ -43,7 +43,7 @@ const Player = () => {
 
 
 
-    return {shipList, createCarrier, createBattleship, createDestroyer, createSubmarine, createPatrolBoat, createGameboard, playerGameboard}
+    return {shipList, createCarrier, createBattleship, createDestroyer, createSubmarine, createPatrolBoat, createGameboard}
 }
 
 

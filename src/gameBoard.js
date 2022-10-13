@@ -4,7 +4,7 @@ import { player1obj } from "./index.js"
 
 const game = []
 
-const Gameboard = (player) => {
+const Gameboard = () => {
     const coordinates = {A1: 0, A2: 0, A3: 0, A4: 0, A5: 0, A6: 0, A7: 0, A8: 0, A9: 0, A10: 0,
         B1: 0, B2: 0, B3: 0, B4: 0, B5: 0, B6: 0, B7: 0, B8: 0, B9: 0, B10: 0,
         C1: 0, C2: 0, C3: 0, C4: 0, C5: 0, C6: 0, C7: 0, C8: 0, C9: 0, C10: 0,                        
@@ -48,19 +48,24 @@ const Gameboard = (player) => {
 
        }
 
-       player1obj.shipList.forEach(ship => {
-        ship.shipCoordinates().forEach(item => {
-            for(const property in coordinates){
-                if(property === item){
-                    coordinates[property] = ship
+       game.forEach(player => {
+        player.shipList.forEach(ship => {
+            ship.shipCoordinates().forEach(item => {
+                for(const property in coordinates){
+                    if(property === item){
+                        coordinates[property] = ship
+                    }
+                    // console.log(property.includes('A1'))
+                
                 }
-                // console.log(property.includes('A1'))
-            
-            }
-    
-    
-           })         
-        })
+        
+        
+               })         
+            })
+
+       })
+
+
 
         // console.log(coordinates)
 
@@ -76,6 +81,8 @@ const Gameboard = (player) => {
 
 
     //    })
+
+       console.log('working')
 
 
     return {coordinates, receiveAttack, letsTry}
