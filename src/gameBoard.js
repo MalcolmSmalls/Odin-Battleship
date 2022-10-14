@@ -38,11 +38,9 @@ const Gameboard = (player) => {
                             console.log('you lose!')}}
                     coordinates[property] = 'HIT'
                     console.log(coordinates) 
-                    }else if(coordinates[property] === 'X' || coordinates[property] === "HIT"){
+                }else if(coordinates[property] === 'X' || coordinates[property] === "HIT"){
                         return "already tried here!"
-                    }
-                }else{
-                    return
+                }
                 }
             }
         }
