@@ -32,8 +32,9 @@ const Gameboard = (player) => {
                     coordinates[property].hit()
                     console.log(`${coordinates[property]} has been hit!`)
                     if(coordinates[property].sunk() === true){
-                        player.splice(player.indexOf(coordinates[property]), 1)
+                        player.shipList.splice(player.shipList.indexOf(coordinates[property]), 1)
                         console.log(`${coordinates[property].getType()} has been sunk!`)
+                        console.log(player.shipList)
                         if(player.length === 0){
                             console.log('you lose!')}}
                     coordinates[property] = 'HIT'
