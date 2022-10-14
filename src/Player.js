@@ -2,6 +2,7 @@ import { Ships } from "./Ships.js"
 import {Gameboard} from "./gameBoard.js"
 import {game} from "./gameBoard.js"
 import { player1obj } from "./index.js"
+import { player2obj } from "./index.js"
 
 
 
@@ -29,8 +30,8 @@ const Player = () => {
     }
 
 
-    const createGameboard = () => {
-        let playerGameboard = Gameboard()
+    const createGameboard = (player) => {
+        let playerGameboard = Gameboard(player)
         return playerGameboard
 
         // Gameboard(player)

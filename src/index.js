@@ -4,24 +4,38 @@ import { Ships } from "./Ships.js"
 
 import { Player } from "./Player.js"
 
-import {game} from "./gameBoard.js"
 // import "./Player.js"
+
+const game = []
+
 
 const player1obj = Player()
 game.push(player1obj)
 player1obj.createCarrier('horizontal', 'A1')
-// player1obj.shipCoordinates()
-// console.log(player1obj.shipList)
-// player1obj.createGameboard()
+player1obj.createBattleship('vertical', 'F1')
 
-// console.log(game[0].shipList[0].shipCoordinates())
-console.log(game[0].createGameboard().coordinates)
-// console.log(player1obj.createGameboard())
-const player2obj = Player('player2');
+const player2obj = Player();
 game.push(player2obj)
-player2obj.createGameboard()
 
-console.log(game)
+player2obj.createCarrier('vertical', 'F4')
+player2obj.createBattleship('horizontal', 'B1')
+
+console.log(player1obj.createGameboard(player1obj))
+console.log(player1obj.createGameboard(player1obj).letsTry())
+console.log(player1obj.createGameboard(player1obj).receiveAttack('A1'))
+// console.log(player1obj.shipList[1].shipCoordinates())
+// console.log(player1obj.shipList[0].shipCoordinates())
+// console.log(player2obj.createGameboard(player2obj))
+// console.log(player1obj.createGameboard(player1obj).coordinates)
+
+
+// console.log(game)
+// game.forEach(player => {
+//     console.log(player.shipList)
+// })
+// console.log(game[1].createGameboard().letsTry())
+// console.log(game[0].createGameboard().coordinates())
+
 
 // console.log(player1obj.playerGameboard)
 // player1.createGameboard()
@@ -49,5 +63,6 @@ console.log(game)
 // console.log(Gameboard().coordinates)
 
 
-export {player1obj}
+export {player1obj,
+        player2obj}
 
