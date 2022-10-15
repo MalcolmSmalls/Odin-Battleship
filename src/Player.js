@@ -3,6 +3,7 @@ import {Gameboard} from "./gameBoard.js"
 import {game} from "./gameBoard.js"
 import { player1obj } from "./index.js"
 import { player2obj } from "./index.js"
+import { CPU } from "./computer.js"
 
 
 

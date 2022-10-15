@@ -4,6 +4,8 @@ import { Ships } from "./Ships.js"
 
 import { Player } from "./Player.js"
 
+import {CPU} from "./computer.js"
+
 const game = []
 
 
@@ -21,8 +23,8 @@ player2obj.createBattleship('horizontal', 'B1')
 console.log(player1obj.createGameboard(player1obj).placeShips())
 console.log(player2obj.createGameboard(player2obj).placeShips())
 console.log(player2obj.createGameboard(player2obj).receiveAttack('A1'))
-console.log(player1obj.createGameboard(player1obj).receiveAttack('A1'))
-console.log(player1obj.createGameboard(player1obj).receiveAttack('A2'))
+console.log(CPU())
+console.log(player1obj.coordinates)
 // console.log(player1obj.createGameboard(player1obj).receiveAttack('A3'))
 // console.log(player1obj.createGameboard(player1obj).receiveAttack('A4'))
 // console.log(player1obj.createGameboard(player1obj).receiveAttack('A5'))
