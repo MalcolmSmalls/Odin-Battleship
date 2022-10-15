@@ -3,14 +3,14 @@ import { player1obj } from "./index.js"
 
 
 const CPU = () => {
+    let cleanArr = []
     for(const coordinate in player1obj.coordinates ){
-        if(coordinate !== "Xs"){
-            player1obj.createGameboard(player1obj).receiveAttack(coordinate)
+        if(player1obj.coordinates[coordinate] !== "X" || player1obj.coordinates[coordinate] !== "HIT"){
+            cleanArr.push(coordinate)
         }
-
-
-
     }
+
+    return cleanArr;
 
 
 }
