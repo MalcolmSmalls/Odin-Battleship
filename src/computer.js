@@ -10,9 +10,9 @@ const CPU = () => {
         }
     }
 
-    return cleanArr;
-
-
+    // return cleanArr;
+    let pick = cleanArr[Math.floor(Math.random() * cleanArr.length)]
+    return player1obj.createGameboard(player1obj).receiveAttack(pick)
 }
 
 
