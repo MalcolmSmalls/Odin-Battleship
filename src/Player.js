@@ -34,10 +34,7 @@ const Player = () => {
         let playerGameboard = Gameboard(player)
         return playerGameboard
 
-        // Gameboard(player)
-        // console.log(player)
     }
-    // Gameboard(player)
 
     const coordinates = {
        A1: 0, A2: 0, A3: 0, A4: 0, A5: 0, A6: 0, A7: 0, A8: 0, A9: 0, A10: 0,
@@ -64,17 +61,7 @@ const Player = () => {
 
 
 ;
-// player1obj.createCarrier('vertical', 'F6')
-
-// player1.createCarrier('horizontal', 'A1')
 
 
-// const carrier = Ships('carrier', 'vertical', 'F6')
-// const battleShip = Ships('battleship', 'horizontal', 'A1')
-// const destroyer = Ships('destroyer', 'horizontal', 'J1')
-// const submarine = Ships('submarine', "vertical", 'B10')
-// const patrolBoat = Ships('patrol boat', 'horizontal', 'G1')
-
-// const player1 = [carrier, battleShip, destroyer, submarine, patrolBoat ]
 
 export { Player }

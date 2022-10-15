@@ -8,9 +8,6 @@ const Ships = (shipType, alignment, baseStart) => {
     const getAlignment = () => alignment
     const start = baseStart
 
-    // if(player === 1){
-
-    // }
 
     const shipSizeGetter = () => {
         if(shipType === 'carrier'){
