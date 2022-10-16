@@ -6,6 +6,11 @@ import { Player } from "./Player.js"
 
 import {CPU} from "./computer.js"
 
+import { DOM } from "./DOM.js"
+
+
+DOM()
+
 const game = []
 
 

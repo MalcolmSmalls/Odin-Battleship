@@ -11,6 +11,22 @@
 /* LAYOUT
 /*******************************************/
 
+body{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+}
+
+.grid {
+  display:flex;
+  flex-flow:row wrap;
+  width:400px;
+}
+.gridCoordinate {
+  width:40px;
+  height:40px;
+  border:1px black solid;
+}
 
 
 /******************************************
