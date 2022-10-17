@@ -1,3 +1,7 @@
+import { Player } from "./Player.js"
+import { player1obj } from "./index.js"
+import { player2obj } from "./index.js"
+
 const DOM = () => {
     const content = document.querySelector("#content")
     content.innerHTML = ""
@@ -114,14 +118,20 @@ const DOM = () => {
 
     `
 
-    const createShip = () => {
-
-        
+    const highlight = (e) => { 
+        console.log(e)
+        if(player1obj.shipList.length === 0){
+            e.target.classList.toggle('ship')
+            e.target.nextSibling.nextSibling.classList.toggle('ship')
+            e.target.nextSibling.nextSibling.nextSibling.nextSibling.classList.toggle('ship')
+            e.target.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.classList.toggle('ship')
+            e.target.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.classList.toggle('ship')
+        }
     }
 
     const gridCoord = document.querySelectorAll('.gridCoordinate')
-    gridCoord.forEach(grid => {
-        grid.addEventListener('mouseover', createShip)
+    gridCoord.forEach(gridSpot => {
+        gridSpot.addEventListener('mouseover', highlight)
     })
 
 
