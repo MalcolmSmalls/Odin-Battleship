@@ -114,6 +114,16 @@ const DOM = () => {
 
     `
 
+    const createShip = () => {
+
+        
+    }
+
+    const gridCoord = document.querySelectorAll('.gridCoordinate')
+    gridCoord.forEach(grid => {
+        grid.addEventListener('mouseover', createShip)
+    })
+
 
 }
 
