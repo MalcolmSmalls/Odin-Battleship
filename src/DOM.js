@@ -129,11 +129,24 @@ const DOM = () => {
         }
     }
 
+
+    const createShip = (e) => {
+        if(player1obj.shipList.length === 0){
+            player1obj.createCarrier('horizontal', e.target.attributes.value.value)
+        } 
+        console.log(player1obj.shipList[0].shipCoordinates())
+        // console.log(e.target.attributes.value.value)
+    }
+
     const gridCoord = document.querySelectorAll('.gridCoordinate')
     gridCoord.forEach(gridSpot => {
         gridSpot.addEventListener('mouseover', highlight)
     })
 
+
+    gridCoord.forEach(gridSpot => {
+        gridSpot.addEventListener('click', createShip)
+    })
 
 }
 
