@@ -254,6 +254,22 @@ const DOM = () => {
         shipAlignment = 'horizontal'
     })
 
+    undoButton.addEventListener('click', () => {
+        if(player1obj.shipList.length !== 0){
+            let arr = player1obj.shipList[player1obj.shipList.length-1].shipCoordinates()
+            let shipName = player1obj.shipList[player1obj.shipList.length-1].getType()
+            let shipNameCombined = shipName[0].toUpperCase() + shipName.substring(1)
+            h1.textContent = `Place Your ${shipNameCombined}`
+            arr.forEach(coordinate => {
+                gridCoord.forEach(value => {
+                    if(value.attributes[1].value === coordinate){
+                        value.classList.remove('ship')
+                    }
+                })
+            }) 
+            player1obj.shipList.pop()          
+        }
+    })
 
 }
 
