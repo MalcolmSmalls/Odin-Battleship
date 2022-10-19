@@ -4,11 +4,24 @@ import { player2obj } from "./index.js"
 
 const DOM = () => {
     const content = document.querySelector("#content")
+    let shipAlignment = "horizontal"
     content.innerHTML = ""
     const grid = document.createElement('div')
     const h1 = document.createElement('h1')
+    const verticalButton = document.createElement('button')
+    const horizontalButton = document.createElement('button')
+    const undoButton = document.createElement('button')
+    const divButton = document.createElement('div')
+    divButton.className = "div_btn"
+    verticalButton.textContent = "Vertical"
+    horizontalButton.textContent = "Horizontal"
+    undoButton.textContent = "Undo"
     content.appendChild(h1)
     h1.textContent = `Place Your Carrier`
+    content.appendChild(divButton)
+    divButton.appendChild(verticalButton)
+    divButton.appendChild(horizontalButton)
+    divButton.appendChild(undoButton)
     content.appendChild(grid)
     grid.className = "grid"
     grid.innerHTML = `<div class='gridCoordinate' value='A1'></div>
@@ -145,7 +158,7 @@ const DOM = () => {
 
     const createShip = (e) => {
         if(player1obj.shipList.length === 0){
-            player1obj.createCarrier('horizontal', e.target.attributes.value.value)
+            player1obj.createCarrier(shipAlignment, e.target.attributes.value.value)
             let arr = player1obj.shipList[0].shipCoordinates()
             h1.textContent = 'Place Your Battleship'
             console.log(player1obj.shipList[0])
@@ -161,7 +174,7 @@ const DOM = () => {
                 h1.textContent = 'Place Your Carrier'
             }
         }else if(player1obj.shipList.length === 1){
-            player1obj.createBattleship('horizontal', e.target.attributes.value.value)
+            player1obj.createBattleship(shipAlignment, e.target.attributes.value.value)
             let arr = player1obj.shipList[1].shipCoordinates()
             h1.textContent = 'Place Your Destroyer'
             arr.forEach(coordinate => {
@@ -176,7 +189,7 @@ const DOM = () => {
                 h1.textContent = 'Place Your Battleship'
             }
         }else if(player1obj.shipList.length === 2){
-            player1obj.createDestroyer('horizontal', e.target.attributes.value.value)
+            player1obj.createDestroyer(shipAlignment, e.target.attributes.value.value)
             let arr = player1obj.shipList[2].shipCoordinates()
             h1.textContent = 'Place Your Submarine'
             arr.forEach(coordinate => {
@@ -191,7 +204,7 @@ const DOM = () => {
                 h1.textContent = 'Place Your Destroyer'
             }
         }else if(player1obj.shipList.length === 3){
-            player1obj.createSubmarine('horizontal', e.target.attributes.value.value)
+            player1obj.createSubmarine(shipAlignment, e.target.attributes.value.value)
             let arr = player1obj.shipList[3].shipCoordinates()
             h1.textContent = 'Place Your Patrol Boat'
             arr.forEach(coordinate => {
@@ -206,7 +219,7 @@ const DOM = () => {
                 h1.textContent = 'Place Your Submarine'
             }
         }else if(player1obj.shipList.length === 4){
-            player1obj.createPatrolBoat('horizontal', e.target.attributes.value.value)
+            player1obj.createPatrolBoat(shipAlignment, e.target.attributes.value.value)
             let arr = player1obj.shipList[4].shipCoordinates()
             h1.textContent = 'Match Starting'
             arr.forEach(coordinate => {
@@ -233,7 +246,17 @@ const DOM = () => {
         gridSpot.addEventListener('click', createShip)
     })
 
+    verticalButton.addEventListener('click', () => {
+        shipAlignment = 'vertical'
+    })
+
+    horizontalButton.addEventListener('click', () => {
+        shipAlignment = 'horizontal'
+    })
+
+
 }
+
 
 
 export { DOM }
