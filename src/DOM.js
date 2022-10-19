@@ -175,6 +175,36 @@ const DOM = () => {
                 player1obj.shipList.pop()
                 h1.textContent = 'Place Your Battleship'
             }
+        }else if(player1obj.shipList.length === 2){
+            player1obj.createDestroyer('horizontal', e.target.attributes.value.value)
+            let arr = player1obj.shipList[2].shipCoordinates()
+            h1.textContent = 'Place Your Submarine'
+            arr.forEach(coordinate => {
+                gridCoord.forEach(value => {
+                    if(value.attributes[1].value === coordinate){
+                        value.classList.toggle('ship')
+                    }
+                })
+            })
+            if(player1obj.shipList[2].shipCoordinates().length === 0){
+                player1obj.shipList.pop()
+                h1.textContent = 'Place Your Destroyer'
+            }
+        }else if(player1obj.shipList.length === 3){
+            player1obj.createSubmarine('horizontal', e.target.attributes.value.value)
+            let arr = player1obj.shipList[3].shipCoordinates()
+            h1.textContent = 'Place Your Patrol Boat'
+            arr.forEach(coordinate => {
+                gridCoord.forEach(value => {
+                    if(value.attributes[1].value === coordinate){
+                        value.classList.toggle('ship')
+                    }
+                })
+            })
+            if(player1obj.shipList[3].shipCoordinates().length === 0){
+                player1obj.shipList.pop()
+                h1.textContent = 'Place Your Submarine'
+            }
         }
     }
 
