@@ -12,6 +12,12 @@ const DOM = () => {
     const horizontalButton = document.createElement('button')
     const undoButton = document.createElement('button')
     const divButton = document.createElement('div')
+    const startGameBtn = document.createElement('button')
+    const divSection = document.createElement('div')
+    divSection.className = "startGame"
+
+    startGameBtn.textContent = "Start Game"
+    startGameBtn.className = "start_btn"
     divButton.className = "div_btn"
     verticalButton.textContent = "Vertical"
     horizontalButton.textContent = "Horizontal"
@@ -155,6 +161,8 @@ const DOM = () => {
         }
     }
 
+    content.appendChild(divSection)
+    const startSection = document.querySelector('.startGame')
 
     const createShip = (e) => {
         if(player1obj.shipList.length === 0){
@@ -221,7 +229,9 @@ const DOM = () => {
         }else if(player1obj.shipList.length === 4){
             player1obj.createPatrolBoat(shipAlignment, e.target.attributes.value.value)
             let arr = player1obj.shipList[4].shipCoordinates()
-            h1.textContent = 'Match Starting'
+            h1.textContent = 'Start Match'
+            // content.appendChild(startSection)
+            divSection.appendChild(startGameBtn)
             arr.forEach(coordinate => {
                 gridCoord.forEach(value => {
                     if(value.attributes[1].value === coordinate){

@@ -17,12 +17,20 @@ body{
   justify-content:center;
 }
 
+#content{
+  display:flex;
+  flex-direction:column;
+}
+
 .grid {
   display:flex;
   flex-flow:row wrap;
   width:400px;
 }
 
+.start_btn{
+  margin: 10px auto;
+}
 /* #content {
   display:flex;
   justify-content:center;
@@ -41,6 +49,12 @@ body{
 
 h1 {
   text-align:Center;
+}
+
+.startGame {
+  display:flex;
+  justify-content:center;
+  flex-flow: column wrap;
 }
 
 
