@@ -205,6 +205,21 @@ const DOM = () => {
                 player1obj.shipList.pop()
                 h1.textContent = 'Place Your Submarine'
             }
+        }else if(player1obj.shipList.length === 4){
+            player1obj.createPatrolBoat('horizontal', e.target.attributes.value.value)
+            let arr = player1obj.shipList[4].shipCoordinates()
+            h1.textContent = 'Match Starting'
+            arr.forEach(coordinate => {
+                gridCoord.forEach(value => {
+                    if(value.attributes[1].value === coordinate){
+                        value.classList.toggle('ship')
+                    }
+                })
+            })
+            if(player1obj.shipList[4].shipCoordinates().length === 0){
+                player1obj.shipList.pop()
+                h1.textContent = 'Place Your Patrol Boat'
+            }
         }
     }
 
