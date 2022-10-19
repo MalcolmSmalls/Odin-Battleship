@@ -6,6 +6,9 @@ const DOM = () => {
     const content = document.querySelector("#content")
     content.innerHTML = ""
     const grid = document.createElement('div')
+    const h1 = document.createElement('h1')
+    content.appendChild(h1)
+    h1.textContent = `Place Your Carrier`
     content.appendChild(grid)
     grid.className = "grid"
     grid.innerHTML = `<div class='gridCoordinate' value='A1'></div>
@@ -131,39 +134,39 @@ const DOM = () => {
     const highlight = (e) => { 
         // console.log(e)
         if(player1obj.shipList.length === 0){
-            // e.target.classList.toggle('ship')
-            // e.target.nextSibling.nextSibling.classList.toggle('ship')
-            // e.target.nextSibling.nextSibling.nextSibling.nextSibling.classList.toggle('ship')
-            // e.target.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.classList.toggle('ship')
-            // e.target.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.classList.toggle('ship')
+            e.target.classList.add('ship')
+            e.target.nextSibling.nextSibling.classList.add('ship')
+            e.target.nextSibling.nextSibling.nextSibling.nextSibling.classList.add('ship')
+            e.target.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.classList.add('ship')
+            e.target.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.classList.add('ship')
         }
     }
 
 
     const createShip = (e) => {
-        // console.log(e.target.classList.toggle('ship'))
-        // e.target.classList.toggle('ship')
         if(player1obj.shipList.length === 0){
             player1obj.createCarrier('horizontal', e.target.attributes.value.value)
             let arr = player1obj.shipList[0].shipCoordinates()
-            console.log(arr)
+            h1.textContent = 'Place Your Battleship'
+            console.log(player1obj.shipList[0])
             arr.forEach(coordinate => {
                 gridCoord.forEach((value, index) => {
-                    // console.log(value.attributes[1].value)
                     if(value.attributes[1].value===coordinate){
                         value.classList.toggle('ship')
                     }
                 })
             })
+            if(player1obj.shipList[0].shipCoordinates().length === 0){
+                player1obj.shipList.pop()
+                h1.textContent = 'Place Your Carrier'
+            }
         } 
-        console.log(player1obj.shipList[0].shipCoordinates())
-        // console.log(e.target.attributes.value.value)
     }
 
     const gridCoord = document.querySelectorAll('.gridCoordinate')
-    gridCoord.forEach(gridSpot => {
-        gridSpot.addEventListener('mouseover', highlight)
-    })
+    // gridCoord.forEach(gridSpot => {
+    //     gridSpot.addEventListener('mouseover', highlight)
+    // })
 
 
     gridCoord.forEach(gridSpot => {

@@ -49,10 +49,9 @@ const Ships = (shipType, alignment, baseStart) => {
             if(startingNum-1 + shipSize <= 10){
                 for(let i=startingNum; i < startingNum + shipSize; i++ ){
                     coordinatesArr.push(`${start.substring(0,1)}${i}`)
-    
                 }
             }else{
-                return
+                // return
             }
 
 
@@ -67,7 +66,7 @@ const Ships = (shipType, alignment, baseStart) => {
                     coordinatesArr.push(`${abc[i]}${num}`)
                 }
             }else{
-                return
+                // return
             }
         }
          return coordinatesArr
