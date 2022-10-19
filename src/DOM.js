@@ -152,7 +152,7 @@ const DOM = () => {
             arr.forEach(coordinate => {
                 gridCoord.forEach((value, index) => {
                     if(value.attributes[1].value===coordinate){
-                        value.classList.toggle('ship')
+                        value.classList.add('ship')
                     }
                 })
             })
@@ -160,7 +160,22 @@ const DOM = () => {
                 player1obj.shipList.pop()
                 h1.textContent = 'Place Your Carrier'
             }
-        } 
+        }else if(player1obj.shipList.length === 1){
+            player1obj.createBattleship('horizontal', e.target.attributes.value.value)
+            let arr = player1obj.shipList[1].shipCoordinates()
+            h1.textContent = 'Place Your Destroyer'
+            arr.forEach(coordinate => {
+                gridCoord.forEach(value => {
+                    if(value.attributes[1].value === coordinate){
+                        value.classList.toggle('ship')
+                    }
+                })
+            })
+            if(player1obj.shipList[1].shipCoordinates().length === 0){
+                player1obj.shipList.pop()
+                h1.textContent = 'Place Your Battleship'
+            }
+        }
     }
 
     const gridCoord = document.querySelectorAll('.gridCoordinate')
