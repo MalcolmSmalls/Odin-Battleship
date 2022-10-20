@@ -232,6 +232,9 @@ const DOM = () => {
             h1.textContent = 'Start Match'
             // content.appendChild(startSection)
             divSection.appendChild(startGameBtn)
+            startGameBtn.addEventListener('click', () => {
+                console.log('yurrp')
+            })
             arr.forEach(coordinate => {
                 gridCoord.forEach(value => {
                     if(value.attributes[1].value === coordinate){
