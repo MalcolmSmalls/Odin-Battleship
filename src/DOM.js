@@ -23,6 +23,7 @@ const DOM = () => {
     horizontalButton.textContent = "Horizontal"
     undoButton.textContent = "Undo"
     content.appendChild(h1)
+    const gameSection = document.querySelector('.game')
     h1.textContent = `Place Your Carrier`
     content.appendChild(divButton)
     divButton.appendChild(verticalButton)
@@ -229,10 +230,134 @@ const DOM = () => {
         }else if(player1obj.shipList.length === 4){
             player1obj.createPatrolBoat(shipAlignment, e.target.attributes.value.value)
             let arr = player1obj.shipList[4].shipCoordinates()
-            h1.textContent = 'Start Match'
+            h1.textContent = `ATTACK ENEMY'S BOARD !`
             // content.appendChild(startSection)
             divSection.appendChild(startGameBtn)
             startGameBtn.addEventListener('click', () => {
+                let enemyGrid = document.createElement('div')
+                gameSection.appendChild(enemyGrid)
+                gameSection.classList.remove('hidden')
+                enemyGrid.className = "grid"
+                enemyGrid.innerHTML = `<div class='gridCoordinate enemy' value='A1'></div>
+                                  <div class='gridCoordinate enemy' value='A2'></div>
+                                  <div class='gridCoordinate enemy' value='A3'></div>    
+                                  <div class='gridCoordinate enemy enemy' value='A4'></div> 
+                                  <div class='gridCoordinate enemy' value='A5'></div>    
+                                  <div class='gridCoordinate enemy' value='A6'></div>    
+                                  <div class='gridCoordinate enemy' value='A7'></div>    
+                                  <div class='gridCoordinate enemy' value='A8'></div>    
+                                  <div class='gridCoordinate enemy' value='A9'></div>    
+                                  <div class='gridCoordinate enemy' value='A10'></div>    
+            
+                                  <div class='gridCoordinate enemy' value='B1'></div>
+                                  <div class='gridCoordinate enemy' value='B2'></div>
+                                  <div class='gridCoordinate enemy' value='B3'></div>    
+                                  <div class='gridCoordinate enemy' value='B4'></div>    
+                                  <div class='gridCoordinate enemy' value='B5'></div> 
+                                  <div class='gridCoordinate enemy' value='B6'></div>    
+                                  <div class='gridCoordinate enemy' value='B7'></div>    
+                                  <div class='gridCoordinate enemy' value='B8'></div>    
+                                  <div class='gridCoordinate enemy' value='B9'></div>    
+                                  <div class='gridCoordinate enemy' value='B10'></div>    
+            
+                                  
+                                  <div class='gridCoordinate enemy' value='C1'></div>
+                                  <div class='gridCoordinate enemy' value='C2'></div>
+                                  <div class='gridCoordinate enemy' value='C3'></div>    
+                                  <div class='gridCoordinate enemy' value='C4'></div> 
+                                  <div class='gridCoordinate enemy' value='C5'></div>   
+                                  <div class='gridCoordinate enemy' value='C6'></div>    
+                                  <div class='gridCoordinate enemy' value='C7'></div>    
+                                  <div class='gridCoordinate enemy' value='C8'></div>    
+                                  <div class='gridCoordinate enemy' value='C9'></div>    
+                                  <div class='gridCoordinate enemy' value='C10'></div>   
+            
+                                  
+                                  <div class='gridCoordinate enemy' value='D1'></div>
+                                  <div class='gridCoordinate enemy' value='D2'></div>
+                                  <div class='gridCoordinate enemy' value='D3'></div>    
+                                  <div class='gridCoordinate enemy' value='D4'></div>    
+                                  <div class='gridCoordinate enemy' value='D5'></div> 
+                                  <div class='gridCoordinate enemy' value='D6'></div>    
+                                  <div class='gridCoordinate enemy' value='D7'></div>    
+                                  <div class='gridCoordinate enemy' value='D8'></div>    
+                                  <div class='gridCoordinate enemy' value='D9'></div>    
+                                  <div class='gridCoordinate enemy' value='D10'></div>   
+            
+                                  
+                                  <div class='gridCoordinate enemy' value='E1'></div>
+                                  <div class='gridCoordinate enemy' value='E2'></div>
+                                  <div class='gridCoordinate enemy' value='E3'></div>    
+                                  <div class='gridCoordinate enemy' value='E4'></div>  
+                                  <div class='gridCoordinate enemy' value='E5'></div>  
+                                  <div class='gridCoordinate enemy' value='E6'></div>    
+                                  <div class='gridCoordinate enemy' value='E7'></div>    
+                                  <div class='gridCoordinate enemy' value='E8'></div>    
+                                  <div class='gridCoordinate enemy' value='E9'></div>    
+                                  <div class='gridCoordinate enemy' value='E10'></div>   
+            
+                                  
+                                  <div class='gridCoordinate enemy' value='F1'></div>
+                                  <div class='gridCoordinate enemy' value='F2'></div>
+                                  <div class='gridCoordinate enemy' value='F3'></div>    
+                                  <div class='gridCoordinate enemy' value='F4'></div>   
+                                  <div class='gridCoordinate enemy' value='F5'></div>  
+                                  <div class='gridCoordinate enemy' value='F6'></div>    
+                                  <div class='gridCoordinate enemy' value='F7'></div>    
+                                  <div class='gridCoordinate enemy' value='F8'></div>    
+                                  <div class='gridCoordinate enemy' value='F9'></div>    
+                                  <div class='gridCoordinate enemy' value='F10'></div>   
+            
+                                  
+                                  <div class='gridCoordinate enemy' value='G1'></div>
+                                  <div class='gridCoordinate enemy' value='G2'></div>
+                                  <div class='gridCoordinate enemy' value='G3'></div>    
+                                  <div class='gridCoordinate enemy' value='G4'></div> 
+                                  <div class='gridCoordinate enemy' value='G5'></div>   
+                                  <div class='gridCoordinate enemy' value='G6'></div>    
+                                  <div class='gridCoordinate enemy' value='G7'></div>    
+                                  <div class='gridCoordinate enemy' value='G8'></div>    
+                                  <div class='gridCoordinate enemy' value='G9'></div>    
+                                  <div class='gridCoordinate enemy' value='G10'></div>   
+            
+                                  
+                                  <div class='gridCoordinate enemy' value='H1'></div>
+                                  <div class='gridCoordinate enemy' value='H2'></div>
+                                  <div class='gridCoordinate enemy' value='H3'></div>    
+                                  <div class='gridCoordinate enemy' value='H4'></div>    
+                                  <div class='gridCoordinate enemy' value='H5'></div>
+                                  <div class='gridCoordinate enemy' value='H6'></div>    
+                                  <div class='gridCoordinate enemy' value='H7'></div>    
+                                  <div class='gridCoordinate enemy' value='H8'></div>    
+                                  <div class='gridCoordinate enemy' value='H9'></div>    
+                                  <div class='gridCoordinate enemy' value='H10'></div>   
+            
+                                  
+                                  <div class='gridCoordinate enemy' value='I1'></div>
+                                  <div class='gridCoordinate enemy' value='I2'></div>
+                                  <div class='gridCoordinate enemy' value='I3'></div>    
+                                  <div class='gridCoordinate enemy' value='I4'></div>   
+                                  <div class='gridCoordinate enemy' value='I5'></div> 
+                                  <div class='gridCoordinate enemy' value='I6'></div>    
+                                  <div class='gridCoordinate enemy' value='I7'></div>    
+                                  <div class='gridCoordinate enemy' value='I8'></div>    
+                                  <div class='gridCoordinate enemy' value='I9'></div>    
+                                  <div class='gridCoordinate enemy' value='I10'></div>   
+            
+                                  
+                                  <div class='gridCoordinate enemy' value='J1'></div>
+                                  <div class='gridCoordinate enemy' value='J2'></div>
+                                  <div class='gridCoordinate enemy' value='J3'></div>    
+                                  <div class='gridCoordinate enemy' value='J4'></div>   
+                                  <div class='gridCoordinate enemy' value='J5'></div>  
+                                  <div class='gridCoordinate enemy' value='J6'></div>    
+                                  <div class='gridCoordinate enemy' value='J7'></div>    
+                                  <div class='gridCoordinate enemy' value='J8'></div>    
+                                  <div class='gridCoordinate enemy' value='J9'></div>    
+                                  <div class='gridCoordinate enemy' value='J10'></div>   
+            
+                `
+                newDiv.appendChild(enemyGrid)
                 console.log('yurrp')
             })
             arr.forEach(coordinate => {

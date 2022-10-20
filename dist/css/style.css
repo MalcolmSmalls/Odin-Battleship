@@ -28,6 +28,15 @@ body{
   width:400px;
 }
 
+.game {
+  width:40%;
+  height:100%;
+}
+
+.hidden {
+  display:none;
+}
+
 .start_btn{
   margin: 10px auto;
 }
