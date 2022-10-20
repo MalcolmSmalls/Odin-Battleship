@@ -230,14 +230,19 @@ const DOM = () => {
         }else if(player1obj.shipList.length === 4){
             player1obj.createPatrolBoat(shipAlignment, e.target.attributes.value.value)
             let arr = player1obj.shipList[4].shipCoordinates()
-            h1.textContent = `ATTACK ENEMY'S BOARD !`
+            h1.textContent = `Click Start Game! `
             // content.appendChild(startSection)
             divSection.appendChild(startGameBtn)
             startGameBtn.addEventListener('click', () => {
+                h1.textContent = `ATTACK ENEMY'S BOARD !`
                 let enemyGrid = document.createElement('div')
                 gameSection.appendChild(enemyGrid)
                 gameSection.classList.remove('hidden')
                 enemyGrid.className = "grid"
+                const buttons = document.querySelectorAll('button')
+                buttons.forEach(button => {
+                    button.classList.add('hidden')
+                })
                 enemyGrid.innerHTML = `<div class='gridCoordinate enemy' value='A1'></div>
                                   <div class='gridCoordinate enemy' value='A2'></div>
                                   <div class='gridCoordinate enemy' value='A3'></div>    
@@ -357,7 +362,6 @@ const DOM = () => {
                                   <div class='gridCoordinate enemy' value='J10'></div>   
             
                 `
-                newDiv.appendChild(enemyGrid)
                 console.log('yurrp')
             })
             arr.forEach(coordinate => {
