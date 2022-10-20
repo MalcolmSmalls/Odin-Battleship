@@ -15,6 +15,11 @@ const DOM = () => {
     const startGameBtn = document.createElement('button')
     const divSection = document.createElement('div')
     divSection.className = "startGame"
+    const titleDiv = document.createElement('div')
+    titleDiv.className = "title"
+    const gameDiv = document.createElement('div')
+    gameDiv.className = "game"
+    content.appendChild(gameDiv)
 
     startGameBtn.textContent = "Start Game"
     startGameBtn.className = "start_btn"
@@ -22,8 +27,9 @@ const DOM = () => {
     verticalButton.textContent = "Vertical"
     horizontalButton.textContent = "Horizontal"
     undoButton.textContent = "Undo"
-    content.appendChild(h1)
-    const gameSection = document.querySelector('.game')
+    content.appendChild(titleDiv)
+    titleDiv.appendChild(h1)
+    // const gameSection = document.querySelector('.game')
     h1.textContent = `Place Your Carrier`
     content.appendChild(divButton)
     divButton.appendChild(verticalButton)
@@ -162,6 +168,10 @@ const DOM = () => {
         }
     }
 
+    const attack = (e) => {
+        console.log(e.target.attributes.value.value)
+    }
+
     content.appendChild(divSection)
     const startSection = document.querySelector('.startGame')
 
@@ -236,8 +246,8 @@ const DOM = () => {
             startGameBtn.addEventListener('click', () => {
                 h1.textContent = `ATTACK ENEMY'S BOARD !`
                 let enemyGrid = document.createElement('div')
-                gameSection.appendChild(enemyGrid)
-                gameSection.classList.remove('hidden')
+                gameDiv.appendChild(enemyGrid)
+                // gameSection.classList.remove('hidden')
                 enemyGrid.className = "grid"
                 const buttons = document.querySelectorAll('button')
                 buttons.forEach(button => {
@@ -362,7 +372,10 @@ const DOM = () => {
                                   <div class='gridCoordinate enemy' value='J10'></div>   
             
                 `
-                console.log('yurrp')
+                const enemyCoordinates = document.querySelectorAll('.enemy')
+                enemyCoordinates.forEach(coordinates => {
+                    coordinates.addEventListener('click', attack)
+                })
             })
             arr.forEach(coordinate => {
                 gridCoord.forEach(value => {

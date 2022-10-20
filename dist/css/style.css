@@ -66,6 +66,10 @@ h1 {
   flex-flow: column wrap;
 }
 
+.title {
+  width:100%;
+}
+
 
 /******************************************
 /* ADDITIONAL STYLES
