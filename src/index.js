@@ -22,11 +22,13 @@ const player1obj = Player()
 const player2obj = Player();
 // game.push(player2obj)
 
-// player2obj.createCarrier('vertical', 'F4')
-// player2obj.createBattleship('horizontal', 'B1')
+player2obj.createCarrier('vertical', 'F4')
+player2obj.createBattleship('horizontal', 'B1')
+player2obj.createSubmarine('horizontal', 'A1')
+player2obj.createGameboard(player2obj).placeShips()
 
 // console.log(player1obj.createGameboard(player1obj).placeShips())
-// console.log(player2obj.createGameboard(player2obj).placeShips())
+
 // console.log(player2obj.createGameboard(player2obj).receiveAttack('A1'))
 // console.log(CPU())
 // console.log(player1obj.coordinates)
