@@ -161,19 +161,44 @@ const DOM = () => {
     `
 
 
-    const highlight = (e) => { 
-        // console.log(e)
-        if(player1obj.shipList.length === 0){
-            e.target.classList.add('ship')
-            e.target.nextSibling.nextSibling.classList.add('ship')
-            e.target.nextSibling.nextSibling.nextSibling.nextSibling.classList.add('ship')
-            e.target.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.classList.add('ship')
-            e.target.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.classList.add('ship')
-        }
+    // const highlight = (e) => { 
+    //     // console.log(e)
+    //     if(player1obj.shipList.length === 0){
+    //         e.target.classList.add('ship')
+    //         e.target.nextSibling.nextSibling.classList.add('ship')
+    //         e.target.nextSibling.nextSibling.nextSibling.nextSibling.classList.add('ship')
+    //         e.target.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.classList.add('ship')
+    //         e.target.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.classList.add('ship')
+    //     }
+    // }
+
+    const missBoard = (player) => {
+        for(const property in player.coordinates){
+            if(player.coordinates[property] === 'X'){
+                if(player === player2obj){
+                    enemyCoordinates.forEach(coordinate => {
+                        console.log(coordinate)
+                        if(coordinate.attributes[1].value === property){
+                            console.log(coordinate)
+                            console.log(enemyCoordinates)
+                            coordinate.classList.add('miss')
+                            console.log('yurrp')
+                        }
+                    })
+    }
+}}}
+
+    const hitBoard = () => {
+
     }
 
     const attackBoard = (e) => {
-        player2obj.createGameboard(player2obj).receiveAttack(e.target.attributes.value.value) 
+        if(player2obj.createGameboard(player2obj).receiveAttack(e.target.attributes.value.value) === 'miss'){
+            e.target.classList.add('miss')
+            console.log(e)
+            
+        }
+
     }
 
     content.appendChild(divSection)

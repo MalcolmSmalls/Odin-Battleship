@@ -60,6 +60,10 @@ h1 {
   text-align:Center;
 }
 
+.miss {
+  border:1px red dotted;
+}
+
 .startGame {
   display:flex;
   justify-content:center;

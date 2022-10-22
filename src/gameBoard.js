@@ -3,14 +3,11 @@ import { Player, coordinates } from "./Player.js"
 import { player1obj } from "./index.js"
 import { player2obj } from "./index.js"
 import { game } from "./index.js"
+import { DOM } from "./DOM.js"
 
 
 const Gameboard = (player) => {
 
-
-       const letsTry = () => {
-        console.log(player.shipList)
-       }
 
        const receiveAttack = (coordinate) => {
         for(const property in player.coordinates){
@@ -61,7 +58,7 @@ const Gameboard = (player) => {
     
     
 
-    return {receiveAttack, letsTry, placeShips}
+    return {receiveAttack, placeShips}
 
 }
 
