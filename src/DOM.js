@@ -193,9 +193,15 @@ const DOM = () => {
     }
 
     const attackBoard = (e) => {
-        if(player2obj.createGameboard(player2obj).receiveAttack(e.target.attributes.value.value) === 'miss'){
+        if(player2obj.createGameboard(player2obj).receiveAttack(e.target.attributes.value.value) === false){
             e.target.classList.add('miss')
+            e.target.textContent = "X"
+            
+        }else{
+            console.log('yoo')
             console.log(e)
+            e.target.classList.add('hit')
+            // e.target.textContent = "X"
             
         }
 

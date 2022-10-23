@@ -61,7 +61,12 @@ h1 {
 }
 
 .miss {
-  border:1px red dotted;
+  background-color:black;
+  color:white;
+}
+
+.hit{
+  background-color:red;
 }
 
 .startGame {
