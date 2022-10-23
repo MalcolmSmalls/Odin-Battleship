@@ -1,9 +1,10 @@
-import { Player } from "./Player.js"
+import { Player, coordinates} from "./Player.js"
 import { player1obj } from "./index.js"
 import { player2obj } from "./index.js"
 import {Gameboard} from "./gameBoard.js"
 import { Ships } from "./Ships.js"
 import {CPU} from "./computer.js"
+
 
 const DOM = () => {
     const content = document.querySelector("#content")
@@ -193,19 +194,31 @@ const DOM = () => {
     }
 
     const attackBoard = (e) => {
-        if(player2obj.createGameboard(player2obj).receiveAttack(e.target.attributes.value.value) === false){
-            e.target.classList.add('miss')
-            e.target.textContent = "X"
-            
-        }else{
-            console.log('yoo')
-            console.log(e)
-            e.target.classList.add('hit')
-            // e.target.textContent = "X"
-            
+        player2obj.createGameboard(player2obj).receiveAttack(e.target.attributes.value.value)
+        for(const property in player2obj.coordinates){
+            // if(player2obj.coordinates[property] === 'X'){
+            if(property === e.target.attributes.value.value){
+                if(player2obj.coordinates[property] === 'X'){
+                    e.target.classList.add('miss')
+                    e.target.textContent = "X"                    
+                }else if(player2obj.coordinates[property] === 'HIT'){
+                    e.target.classList.add('hit')
+                }
+            }
+            }
         }
+        // console.log(player2obj.coordinates)
+        // if() === false){
+        //     e.target.classList.add('miss')
+        //     e.target.textContent = "X"
+            
+        // }else{
+        //     e.target.classList.add('hit')
+        //     // e.target.textContent = "X"
+            
+        // }
 
-    }
+    // }
 
     content.appendChild(divSection)
     const startSection = document.querySelector('.startGame')

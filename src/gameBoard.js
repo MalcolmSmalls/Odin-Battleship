@@ -14,15 +14,15 @@ const Gameboard = (player) => {
             if(property === coordinate){
                 if(player.coordinates[property] === 0){
                     player.coordinates[property] = 'X'
-                    console.log(player.coordinates) 
-                    console.log(player.shipList)
+                    // console.log(player.coordinates) 
+                    // console.log(player.shipList)
                     return false
                 }else if(typeof(player.coordinates[property]) === 'object'){
                     player.coordinates[property].hit()
                     if(player.coordinates[property].sunk() === true){
                         player.shipList.splice(player.shipList.indexOf(player.coordinates[property]), 1)
                         console.log(`${player.coordinates[property].getType()} has been sunk!`)
-                        console.log(player.shipList)
+                        // console.log(player.shipList)
                         if(player.shipList.length === 0){
                             console.log('you lose!')}}
                         player.coordinates[property] = 'HIT'
