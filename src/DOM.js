@@ -190,8 +190,19 @@ const DOM = () => {
 }}}
 
     const computerAttack = () => {
-        console.log(CPU())
-        console.log(player1obj.coordinates)
+        CPU()
+        for(const property in player1obj.coordinates){
+            gridCoord.forEach(grid => {
+                if(grid.attributes[1].value === property){
+                    if(player1obj.coordinates[property] === 'X'){
+                        grid.classList.add('miss')
+                        // grid.textContent = "X"
+                    }else if(player1obj.coordinates[property] === 'HIT'){
+                        grid.classList.add('hit')
+                    }
+                }
+            })
+        }
 
     }
 
@@ -202,7 +213,7 @@ const DOM = () => {
             if(property === e.target.attributes.value.value){
                 if(player2obj.coordinates[property] === 'X'){
                     e.target.classList.add('miss')
-                    e.target.textContent = "X"    
+                    // e.target.textContent = "X"    
                     computerAttack()                
                 }else if(player2obj.coordinates[property] === 'HIT'){
                     e.target.classList.add('hit')

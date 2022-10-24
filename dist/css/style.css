@@ -11,6 +11,10 @@
 /* LAYOUT
 /*******************************************/
 
+.ship {
+  background-color: blue;
+}
+
 body{
   display:flex;
   flex-direction:row;
