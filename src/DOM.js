@@ -189,7 +189,9 @@ const DOM = () => {
     }
 }}}
 
-    const hitBoard = () => {
+    const computerAttack = () => {
+        console.log(CPU())
+        console.log(player1obj.coordinates)
 
     }
 
@@ -200,9 +202,11 @@ const DOM = () => {
             if(property === e.target.attributes.value.value){
                 if(player2obj.coordinates[property] === 'X'){
                     e.target.classList.add('miss')
-                    e.target.textContent = "X"                    
+                    e.target.textContent = "X"    
+                    computerAttack()                
                 }else if(player2obj.coordinates[property] === 'HIT'){
                     e.target.classList.add('hit')
+                    computerAttack()
                 }
             }
             }
