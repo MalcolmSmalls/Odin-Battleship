@@ -206,18 +206,38 @@ const DOM = () => {
 
     }
 
+    const attackBack = (e) => {
+        for(const property in player2obj.coordinates){
+            if(property === e.target.attributes.value.value){
+                if(typeof(player2obj.coordinates[property]) === 'number' || typeof(player2obj.coordinates[property]) === 'object'){
+                    console.log(typeof(player2obj.coordinates[property]))
+                    console.log(`lets see`)
+                    computerAttack()
+
+                }else{
+                    return
+
+                }
+            }         
+        }
+    }
+
     const attackBoard = (e) => {
+        attackBack(e)
+        // if(typeof(e.target.attributes.value.value === 'string')){
+        //     console.log('woops')
+        // }
         player2obj.createGameboard(player2obj).receiveAttack(e.target.attributes.value.value)
         for(const property in player2obj.coordinates){
             // if(player2obj.coordinates[property] === 'X'){
             if(property === e.target.attributes.value.value){
                 if(player2obj.coordinates[property] === 'X'){
                     e.target.classList.add('miss')
-                    // e.target.textContent = "X"    
-                    computerAttack()                
+                    // e.target.textContent = "X"                   
                 }else if(player2obj.coordinates[property] === 'HIT'){
                     e.target.classList.add('hit')
-                    computerAttack()
+                }else{
+                    return
                 }
             }
             }
