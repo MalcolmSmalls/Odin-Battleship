@@ -24,9 +24,15 @@ const Gameboard = (player) => {
                         console.log(`${player.coordinates[property].getType()} has been sunk!`)
                         // console.log(player.shipList)
                         if(player.shipList.length === 0){
-                            console.log('you lose!')}}
-                        player.coordinates[property] = 'HIT'
-                        return true
+                            if(player === player1obj){
+                                console.log(`You Lose!`)
+                            }else if(player === player2obj){
+                                console.log(`CPU Loses!`)
+                            }
+                        }
+                    }
+                    player.coordinates[property] = 'HIT'
+                    return true
                 }else if(player.coordinates[property] === 'X' || player.coordinates[property] === "HIT"){
                         return 
                 }

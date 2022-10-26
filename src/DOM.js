@@ -210,9 +210,17 @@ const DOM = () => {
         for(const property in player2obj.coordinates){
             if(property === e.target.attributes.value.value){
                 if(typeof(player2obj.coordinates[property]) === 'number' || typeof(player2obj.coordinates[property]) === 'object'){
-                    console.log(typeof(player2obj.coordinates[property]))
-                    console.log(`lets see`)
-                    computerAttack()
+                    player2obj.createGameboard(player2obj).receiveAttack(e.target.attributes.value.value)
+                    console.log(`1: I attacked ${e.target.attributes.value.value}`)
+                    if(player2obj.shipList.length === 0){
+                        h1.textContent = "You Win!"                        
+                    }else{
+                        computerAttack()
+                        if(player1obj.shipList.length === 0){
+                            h1.textContent = "You Lose!"
+                        }
+                    }
+
 
                 }else{
                     return
@@ -226,8 +234,10 @@ const DOM = () => {
         attackBack(e)
         // if(typeof(e.target.attributes.value.value === 'string')){
         //     console.log('woops')
-        // }
-        player2obj.createGameboard(player2obj).receiveAttack(e.target.attributes.value.value)
+        // }   
+        // console.log(player2obj.shipList.length)
+        // console.log(player1obj.shipList.length)
+
         for(const property in player2obj.coordinates){
             // if(player2obj.coordinates[property] === 'X'){
             if(property === e.target.attributes.value.value){
