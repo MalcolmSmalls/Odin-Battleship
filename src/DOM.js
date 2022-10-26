@@ -7,6 +7,7 @@ import {CPU} from "./computer.js"
 
 
 const DOM = () => {
+    let endGame = false
     const content = document.querySelector("#content")
     let shipAlignment = "horizontal"
     content.innerHTML = ""
@@ -213,11 +214,13 @@ const DOM = () => {
                     player2obj.createGameboard(player2obj).receiveAttack(e.target.attributes.value.value)
                     console.log(`1: I attacked ${e.target.attributes.value.value}`)
                     if(player2obj.shipList.length === 0){
-                        h1.textContent = "You Win!"                        
+                        h1.textContent = "You Win!"      
+                        endGame = true              
                     }else{
                         computerAttack()
                         if(player1obj.shipList.length === 0){
                             h1.textContent = "You Lose!"
+                            endGame = true
                         }
                     }
 
@@ -231,26 +234,32 @@ const DOM = () => {
     }
 
     const attackBoard = (e) => {
-        attackBack(e)
-        // if(typeof(e.target.attributes.value.value === 'string')){
-        //     console.log('woops')
-        // }   
-        // console.log(player2obj.shipList.length)
-        // console.log(player1obj.shipList.length)
-
-        for(const property in player2obj.coordinates){
-            // if(player2obj.coordinates[property] === 'X'){
-            if(property === e.target.attributes.value.value){
-                if(player2obj.coordinates[property] === 'X'){
-                    e.target.classList.add('miss')
-                    // e.target.textContent = "X"                   
-                }else if(player2obj.coordinates[property] === 'HIT'){
-                    e.target.classList.add('hit')
-                }else{
-                    return
+        if(endGame === true){
+            return
+        }else{
+            attackBack(e)
+            // if(typeof(e.target.attributes.value.value === 'string')){
+            //     console.log('woops')
+            // }   
+            // console.log(player2obj.shipList.length)
+            // console.log(player1obj.shipList.length)
+    
+            for(const property in player2obj.coordinates){
+                // if(player2obj.coordinates[property] === 'X'){
+                if(property === e.target.attributes.value.value){
+                    if(player2obj.coordinates[property] === 'X'){
+                        e.target.classList.add('miss')
+                        // e.target.textContent = "X"                   
+                    }else if(player2obj.coordinates[property] === 'HIT'){
+                        e.target.classList.add('hit')
+                    }else{
+                        return
+                    }
                 }
-            }
-            }
+                }
+            
+        }
+
         }
         // console.log(player2obj.coordinates)
         // if() === false){
